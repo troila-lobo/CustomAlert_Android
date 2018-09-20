@@ -111,7 +111,7 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialogTCBB("标题",R.style.titleStyle, "文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容",R.style.msgStyle, "left",R.style.titleStyle,null, "right",0, null);
+                customAlert.showDialogTCBBStyle("标题",R.style.titleStyle, "文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容",0,R.style.msgStyle, "left",R.style.titleStyle,null, "right",0, null);
 
             }
         });

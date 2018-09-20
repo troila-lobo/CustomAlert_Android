@@ -84,7 +84,7 @@ public class CustomAlert {
      * @param rightStyle
      * @param positiveButtonlistener
      */
-    public void showDialogTCBB(String title,int titleStyle,String msg,int msgStyle,String negativeButtonText,int leftStyle,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,int rightStyle,DialogInterface.OnClickListener positiveButtonlistener){
+    public void showDialogTCBBStyle(String title,int titleStyle,String msg,int icon,int msgStyle,String negativeButtonText,int leftStyle,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,int rightStyle,DialogInterface.OnClickListener positiveButtonlistener){
         if (!isCorrectContex())return;
         isShowing();
         builder = new CustomDialog.Builder(context, title, msg);
@@ -92,6 +92,7 @@ public class CustomAlert {
         builder.setContentStyle(msgStyle);
         builder.setButtonLeftStyle(leftStyle);
         builder.setButtonRightStyle(rightStyle);
+        builder.setIcon(icon);
         builder.setNegativeButton(negativeButtonText,negativeButtonlistener);
         builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
         dia = builder.create();

@@ -1,7 +1,11 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
+    lintOptions {
+        abortOnError false
+    }
 
 
 
@@ -31,4 +35,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+publish {
+    userOrg = 'ttc'//bintray.com用户名
+    groupId = 'com.troila'//jcenter上的路径
+    artifactId = 'CustomAlert'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'this is for test'//描述，不重要
+    website = 'https://github.com/sunjingcat/CustomAlert_Android'//网站，最好有，不重要
 }
