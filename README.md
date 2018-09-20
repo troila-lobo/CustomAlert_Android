@@ -10,7 +10,7 @@
 	}
 * Step 2
  > dependencies {
-	        implementation 'com.github.troila-mobile:CustomAlert_Android:1.0.0'
+	        implementation 'com.github.troila-mobile:CustomAlert_Android:1.0.1'
 	}
 ### 项目组成
 ##### 项目整体分为两部分
@@ -31,4 +31,9 @@
 ### 1、Toast
 >Toast 的基础样式为白底，其他部分半透明，带有标题，图标，内容，两个按钮
 >* Toast 根据所传值显示内容，不传默认不生效
+| 方法名 | 说明 | 
+| - | - | 
+|`showToast(String msg)`| 显示简单提示框|
+| `showToastIC(int icon,String msg)` | 显示带图标提示框 |
+| `showToastPC(String msg)` | 带进度条的提示框 |
 
