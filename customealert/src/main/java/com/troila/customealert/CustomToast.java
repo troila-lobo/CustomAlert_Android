@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.troila.customealert.utils.Utils;
+
 public class CustomToast {
 
     /**
@@ -30,13 +32,13 @@ public class CustomToast {
      * @param icon
      * @param msg
      */
-    public static void showToast(Context context,int icon,String msg){
+    public static void showToast(Context context,String icon,String msg){
         Toast toast = Toast.makeText(context.getApplicationContext(), msg,
                 Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         LinearLayout toastView = (LinearLayout) toast.getView();
         ImageView imageCodeProject = new ImageView(context.getApplicationContext());
-        imageCodeProject.setImageResource(icon);
+        imageCodeProject.setImageResource(Utils.getIconWhite(icon));
         toastView.addView(imageCodeProject, 0);
         toast.show();
     }
@@ -61,10 +63,6 @@ public class CustomToast {
         toast.setView(layout);
         toast.show();
     }
-    public static void showErrorToast(Context context,String msg){
-        showToast(context,R.drawable.image_w_error,msg);
-    }
-    public static void showSuccessToast(Context context,String msg){
-        showToast(context,R.drawable.image_w_correct,msg);
-    }
+
+
 }

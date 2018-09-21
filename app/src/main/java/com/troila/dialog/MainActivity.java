@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, R.drawable.img_error, "文字内容文字内容\n" +
+                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, "success", "文字内容文字内容\n" +
                         "文字内容文字内容文字内容");
                 builder.setNegativeButton("离开", new DialogInterface.OnClickListener() {
                     @Override
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, R.drawable.img_error, "文字内容文字内容\n" +
+                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, "success", "文字内容文字内容\n" +
                         "文字内容文字内容文字内容");
                 builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
                     @Override

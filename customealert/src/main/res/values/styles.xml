@@ -26,6 +26,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
     <style name="titleStyle" >
         <!-- Customize your theme here. -->

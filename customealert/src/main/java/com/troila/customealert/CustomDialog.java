@@ -12,6 +12,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.troila.customealert.utils.Utils;
+
 /**
  * 白色背景，垂直居中
  *
@@ -32,7 +34,8 @@ public class CustomDialog extends Dialog {
         private Context context;
         private String title;
         private String message;
-        private int icon;
+
+        private String iconType;
         private String positiveButtonText;
         private String negativeButtonText;
         private OnClickListener positiveButtonClickListener;
@@ -60,13 +63,6 @@ public class CustomDialog extends Dialog {
             this.message = msg;
             this.title = title;
         }
-
-        public Builder(Context context, int icon, String msg) {
-            this.context = context;
-            this.message = msg;
-            this.icon = icon;
-        }
-
         public Builder setMessage(String message) {
             this.message = message;
             return this;
@@ -89,11 +85,6 @@ public class CustomDialog extends Dialog {
 
         public Builder setShowCloseIcon(boolean showCloseIcon) {
             this.showCloseIcon = showCloseIcon;
-            return this;
-        }
-
-        public Builder setIcon(int icon) {
-            this.icon = icon;
             return this;
         }
 
@@ -137,6 +128,11 @@ public class CustomDialog extends Dialog {
             return this;
         }
 
+        public Builder setIconType(String iconType) {
+            this.iconType = iconType;
+            return this;
+        }
+
         public Builder setPositiveButton(int positiveButtonText, OnClickListener listener) {
             this.positiveButtonText = (String) context.getText(positiveButtonText);
             this.positiveButtonClickListener = listener;
@@ -177,11 +173,10 @@ public class CustomDialog extends Dialog {
                 TextView tvTitle = (TextView) layout.findViewById(R.id.lblDialogTitle);
                 tvTitle.setVisibility(View.VISIBLE);
                 tvTitle.setText(title);
-                tvTitle.setTextColor(Color.parseColor("#333"));
                 if (!TextUtils.isEmpty(titleColor)) {
                     tvTitle.setTextColor(Color.parseColor(titleColor));
                 }
-                if (titleSize !=0) {
+                if (titleSize != 0) {
                     tvTitle.setTextSize(titleSize);
                 }
             }
@@ -199,18 +194,19 @@ public class CustomDialog extends Dialog {
 
 
             //set Icon
-            if (icon != 0) {
+            if (!TextUtils.isEmpty(iconType)) {
                 ImageView lblDialogIcon = (ImageView) layout.findViewById(R.id.lblDialogIcon);
                 lblDialogIcon.setVisibility(View.VISIBLE);
-                lblDialogIcon.setImageResource(icon);
+                lblDialogIcon.setImageResource(Utils.getIcon(iconType));
             }
+
             // set the confirm button
             TextView msg = (TextView) layout.findViewById(R.id.lblDialogMessage);
             msg.setText(message);
             if (!TextUtils.isEmpty(contentColor)) {
                 msg.setTextColor(Color.parseColor(contentColor));
             }
-            if (contentSize !=0) {
+            if (contentSize != 0) {
                 msg.setTextSize(contentSize);
             }
             // set the cancel button
@@ -220,7 +216,7 @@ public class CustomDialog extends Dialog {
                 if (!TextUtils.isEmpty(buttonLeftColor)) {
                     lblNegative.setTextColor(Color.parseColor(buttonLeftColor));
                 }
-                if (buttonLeftSize !=0) {
+                if (buttonLeftSize != 0) {
                     lblNegative.setTextSize(buttonLeftSize);
                 }
                 if (negativeButtonClickListener != null) {
@@ -238,7 +234,7 @@ public class CustomDialog extends Dialog {
                 if (!TextUtils.isEmpty(buttonRightColor)) {
                     lblPositive.setTextColor(Color.parseColor(buttonRightColor));
                 }
-                if (buttonRightSize !=0) {
+                if (buttonRightSize != 0) {
                     lblPositive.setTextSize(buttonRightSize);
                 }
                 lblPositive.setText(positiveButtonText);
@@ -264,4 +260,5 @@ public class CustomDialog extends Dialog {
             return dialog;
         }
     }
+
 }

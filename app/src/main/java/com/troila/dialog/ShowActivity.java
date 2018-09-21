@@ -8,6 +8,7 @@ import android.view.View;
 import com.troila.customealert.CustomAlert;
 import com.troila.customealert.CustomDialog;
 import com.troila.customealert.CustomToast;
+import com.troila.customealert.ProgressDialog;
 
 public class ShowActivity extends AppCompatActivity {
     CustomAlert customAlert;
@@ -38,26 +39,10 @@ public class ShowActivity extends AppCompatActivity {
                 });
             }
         });
-        findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customAlert.showDialog("标题", "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "按钮", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                }, "按钮", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-            }
-        });
         findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog("标题", "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "按钮", new DialogInterface.OnClickListener() {
+                customAlert.showDialog("", "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "按钮", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -83,7 +68,7 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog(R.drawable.img_error, "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "", null,"按钮", new DialogInterface.OnClickListener() {
+                customAlert.showDialog("success", "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "", null,"按钮", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -100,24 +85,25 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomToast.showToast(ShowActivity.this,R.drawable.img_error, "文字内容文字内容文字内容文字内容文字内容");
+                CustomToast.showToast(ShowActivity.this,"fail", "文字内容文字内容文字内容文字内容文字内容");
             }
         });
         findViewById(R.id.btn8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomToast.showToast(ShowActivity.this,"文字内容文字内容文字内容文字内容文字内容");
+                new ProgressDialog.Builder(ShowActivity.this)
+                        .setTitle("进度条").create().show();
             }
         });
         findViewById(R.id.btn9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog("标题","#123",11,
-                "内容","#123",11,R.drawable.img_error,
+                customAlert.showDialog("标题","#123123",11,
+                "内容","#123123",11,"success",
 
-                 "left","#123",11,
+                 "left","#123123",11,
                  null,
-                 "right","#123",11,
+                 "right","#123123",11,
                  null);
 
             }
@@ -125,8 +111,8 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn10).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog("标题" , R.drawable.img_error,"文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容","left",null, "right", null);
-                customAlert.showDialog("标题" , R.drawable.img_error,"文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容","left",null, "right", null);
+                customAlert.showDialog("标题" , "success","文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容","left",null, "right", null);
+                customAlert.showDialog("标题" ,"success","文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容","left",null, "right", null);
 
             }
         });
