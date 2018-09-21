@@ -21,14 +21,29 @@
 >* Dialog 的基础样式为白底，其他部分半透明，带有标题，图标，内容，两个按钮
 >* Dialog 根据所传值显示内容，不传默认不生效
 >
+>        new CustomDialog.Builder(context)
+		.setTitle(title)
+                .setMessage(msg)
+                .setIconType(iconType)
+		.setTitleColor(titleColor).setTitleSize(titleSize)
+                .setContentColor(msgColor).setContentSize(msgSize)
+                .setButtonLeftColor(negativeButtonTextColor).setContentSize(negativeButtonTextSize)
+                .setButtonRightColor(positiveButtonTextColor).setContentSize(positiveButtonTextSize)
+                .setNegativeButton(negativeButtonText, negativeButtonlistener)
+                .setPositiveButton(positiveButtonText, positiveButtonlistener).create().show();
+   
 | 方法名 | 说明 | 
 | - | - | 
-|`showDialogOnlyContent(String msg)`| 显示简单文字框|
-| `showDialogTCBB(String title,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener) ` | 显示标题内容按钮 |
-| `showDialogAll(String title,String msg,int icon,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener)` | 显示标题图标内容按钮 |
-| `showDialogTCBBStyle(String title,int titleStyle,String msg,int icon,int msgStyle,String negativeButtonText,int leftStyle,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,int rightStyle,DialogInterface.OnClickListener positiveButtonlistener)` | 可设置样式的 ，style字段设为0，显示默认样式|
-| `showDialogICBB(int icon,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener)` | 显示标题图标内容按钮|
-### 1、Toast
+|`setTitle(title)`| 设置标题|
+| `setMessage(msg)` | 设置内容 |
+| `setIconType(iconType)` | 设置图标仅"success","fail" ,"warning" |
+| `setTitleColor(titleColor).setTitleSize(titleSize)` | 设置标题的样式，颜色字体|
+| `setContentColor(msgColor).setContentSize(msgSize)` | 设置内容的样式，颜色字体|
+| `setButtonLeftColor(negativeButtonTextColor).setContentSize(negativeButtonTextSize)` | 设置左边按钮的样式，颜色字体|
+| `setButtonRightColor(positiveButtonTextColor).setContentSize(positiveButtonTextSize)` | 设置右边按钮的样式，颜色字体|
+| `setNegativeButton(negativeButtonText, negativeButtonlistener)` | 设置按钮文字和事件|
+| `setPositiveButton(positiveButtonText, positiveButtonlistener)` | 设置按钮文字和事件|
+### 2、Toast
 >Toast 的基础样式为白底，其他部分半透明，带有标题，图标，内容，两个按钮
 >* Toast 根据所传值显示内容，不传默认不生效
 >
