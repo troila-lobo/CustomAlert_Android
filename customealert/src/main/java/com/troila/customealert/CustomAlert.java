@@ -31,19 +31,6 @@ public class CustomAlert {
     }
 
     /**
-     * 仅显示内容
-     * @param msg
-     */
-    public void showDialogOnlyContent(String msg){
-        if (!isCorrectContex())return;
-        isShowing();
-        builder = new CustomDialog.Builder(context, "", msg);
-        dia = builder.create();
-        dia.show();
-    }
-
-    /**
-     * 标题，内容，两个按钮，不需要显示的内容传"",null,0
      * @param title
      * @param msg
      * @param negativeButtonText
@@ -51,7 +38,7 @@ public class CustomAlert {
      * @param positiveButtonText
      * @param positiveButtonlistener
      */
-    public void showDialogTCBB(String title,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+    public void showDialog(String title,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
         if (!isCorrectContex())return;
         isShowing();
         builder = new CustomDialog.Builder(context, title, msg);
@@ -60,7 +47,93 @@ public class CustomAlert {
         dia = builder.create();
         dia.show();
     }
-    public void showDialogAll(String title,String msg,int icon,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+
+    /**
+     *
+     * @param icon
+     * @param msg
+     * @param negativeButtonText
+     * @param negativeButtonlistener
+     * @param positiveButtonText
+     * @param positiveButtonlistener
+     */
+    public void showDialog(int icon,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        if (!isCorrectContex())return;
+        isShowing();
+        builder = new CustomDialog.Builder(context, icon, msg);
+        builder.setNegativeButton(negativeButtonText,negativeButtonlistener);
+        builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
+        dia = builder.create();
+        dia.show();
+    }
+
+    /**
+     *
+     * @param title
+     * @param msg
+     * @param positiveButtonText
+     * @param positiveButtonlistener
+     */
+    public void showDialog(String title,String msg,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        if (!isCorrectContex())return;
+        isShowing();
+        builder = new CustomDialog.Builder(context, title, msg);
+        builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
+        dia = builder.create();
+        dia.show();
+    }
+
+    /**
+     *
+     * @param icon
+     * @param msg
+     * @param positiveButtonText
+     * @param positiveButtonlistener
+     */
+    public void showDialog(int icon,String msg,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        if (!isCorrectContex())return;
+        isShowing();
+        builder = new CustomDialog.Builder(context, icon, msg);
+        builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
+        dia = builder.create();
+        dia.show();
+    }
+
+    /**
+     *
+     * @param msg
+     * @param positiveButtonText
+     * @param positiveButtonlistener
+     */
+    public void showDialog(String msg,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        if (!isCorrectContex())return;
+        isShowing();
+        builder = new CustomDialog.Builder(context, "", msg);
+        builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
+        dia = builder.create();
+        dia.show();
+    }
+    /**
+     * 仅显示内容
+     * @param msg
+     */
+    public void showDialog(String msg){
+        if (!isCorrectContex())return;
+        isShowing();
+        builder = new CustomDialog.Builder(context, "", msg);
+        dia = builder.create();
+        dia.show();
+    }
+    /**
+     * 标题，图标，内容，两个按钮，不需要显示的内容传"",null,0
+     * @param title
+     * @param msg
+     * @param negativeButtonText
+     * @param negativeButtonlistener
+     * @param positiveButtonText
+     * @param positiveButtonlistener
+     */
+    public void showDialog(String title,int icon,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
         if (!isCorrectContex())return;
         isShowing();
         builder = new CustomDialog.Builder(context, title, msg);
@@ -74,24 +147,23 @@ public class CustomAlert {
     /**
      * 标题，内容，两个按钮，可设置样式"，默认样式传0
      * @param title
-     * @param titleStyle
      * @param msg
-     * @param msgStyle
      * @param negativeButtonText
-     * @param leftStyle
      * @param negativeButtonlistener
      * @param positiveButtonText
-     * @param rightStyle
      * @param positiveButtonlistener
      */
-    public void showDialogTCBBStyle(String title,int titleStyle,String msg,int icon,int msgStyle,String negativeButtonText,int leftStyle,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,int rightStyle,DialogInterface.OnClickListener positiveButtonlistener){
+    public void showDialog(String title,String titleColor,int titleSize,
+                           String msg,String msgColor,int msgSize,
+                           int icon,
+                           String negativeButtonText, String negativeButtonTextColor,int negativeButtonTextSize,
+                           DialogInterface.OnClickListener negativeButtonlistener,
+                           String positiveButtonText,String positiveButtonTextColor,int positiveButtonTextSize,
+                            DialogInterface.OnClickListener positiveButtonlistener){
         if (!isCorrectContex())return;
         isShowing();
+
         builder = new CustomDialog.Builder(context, title, msg);
-        builder.setTitleStyle(titleStyle);
-        builder.setContentStyle(msgStyle);
-        builder.setButtonLeftStyle(leftStyle);
-        builder.setButtonRightStyle(rightStyle);
         builder.setIcon(icon);
         builder.setNegativeButton(negativeButtonText,negativeButtonlistener);
         builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
@@ -99,24 +171,16 @@ public class CustomAlert {
         dia.show();
     }
 
-    /**
-     * 图标，内容，两个按钮，不需要显示的内容传"",null,0
-     * @param icon
-     * @param msg
-     * @param negativeButtonText
-     * @param negativeButtonlistener
-     * @param positiveButtonText
-     * @param positiveButtonlistener
-     */
-    public void showDialogICBB(int icon,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
-        if (!isCorrectContex())return;
-        isShowing();
-        builder = new CustomDialog.Builder(context, icon, msg);
-        builder.setNegativeButton(negativeButtonText,negativeButtonlistener);
-        builder.setPositiveButton(positiveButtonText,positiveButtonlistener);
-        dia = builder.create();
-        dia.show();
+    public void showSuccessDialog(String title,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        showDialog(title,R.drawable.image_correct,msg,negativeButtonText,negativeButtonlistener,positiveButtonText,positiveButtonlistener);
     }
+    public void showErrorDialog(String title,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        showDialog(title,R.drawable.img_error,msg,negativeButtonText,negativeButtonlistener,positiveButtonText,positiveButtonlistener);
+    }
+    public void showPromptDialog(String title,String msg,String negativeButtonText,DialogInterface.OnClickListener negativeButtonlistener,String positiveButtonText,DialogInterface.OnClickListener positiveButtonlistener){
+        showDialog(title,R.drawable.image_prompt,msg,negativeButtonText,negativeButtonlistener,positiveButtonText,positiveButtonlistener);
+    }
+
 
     private boolean isCorrectContex(){
         if (context instanceof Activity){

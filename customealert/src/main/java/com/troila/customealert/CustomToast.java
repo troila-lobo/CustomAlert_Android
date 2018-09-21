@@ -30,7 +30,7 @@ public class CustomToast {
      * @param icon
      * @param msg
      */
-    public static void showToastIC(Context context,int icon,String msg){
+    public static void showToast(Context context,int icon,String msg){
         Toast toast = Toast.makeText(context.getApplicationContext(), msg,
                 Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -45,7 +45,7 @@ public class CustomToast {
      * 带进度条的Toast
      * @param msg
      */
-    public static void showToastPC(Context context,String msg){
+    public static void showToast(Context context,String msg,boolean showProgress){
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View layout = inflater.inflate(R.layout.cus_toast,
                 (ViewGroup) ((Activity)context).findViewById(R.id.llToast));
@@ -60,5 +60,11 @@ public class CustomToast {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
+    }
+    public static void showErrorToast(Context context,String msg){
+        showToast(context,R.drawable.image_w_error,msg);
+    }
+    public static void showSuccessToast(Context context,String msg){
+        showToast(context,R.drawable.image_w_correct,msg);
     }
 }
