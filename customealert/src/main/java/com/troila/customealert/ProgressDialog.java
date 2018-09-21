@@ -57,7 +57,7 @@ public class ProgressDialog extends Dialog {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final ProgressDialog dialog = new ProgressDialog(context, R.style.custom_Progress_nobg);
 
-            View layout = inflater.inflate(R.layout.cus_toast, null);
+            View layout = inflater.inflate(R.layout.dialog_progress, null);
             dialog.addContentView(layout, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             // set the dialog title
             if (!TextUtils.isEmpty(title)) {

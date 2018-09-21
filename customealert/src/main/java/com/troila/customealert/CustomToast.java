@@ -18,47 +18,27 @@ import com.troila.customealert.utils.Utils;
 public class CustomToast {
 
     /**
-     * 普通Toast
-     * @param msg
-     */
-    public static void showToast(Context context,String msg){
-        Toast toast = Toast.makeText(context, msg,
-                Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
-    /**
      * 带图标和内容的Toast
      * @param icon
      * @param msg
      */
     public static void showToast(Context context,String icon,String msg){
-        Toast toast = Toast.makeText(context.getApplicationContext(), msg,
-                Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        LinearLayout toastView = (LinearLayout) toast.getView();
-        ImageView imageCodeProject = new ImageView(context.getApplicationContext());
-        imageCodeProject.setImageResource(Utils.getIconWhite(icon));
-        toastView.addView(imageCodeProject, 0);
-        toast.show();
-    }
-
-    /**
-     * 带进度条的Toast
-     * @param msg
-     */
-    public static void showToast(Context context,String msg,boolean showProgress){
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View layout = inflater.inflate(R.layout.cus_toast,
                 (ViewGroup) ((Activity)context).findViewById(R.id.llToast));
-        ProgressBar image = (ProgressBar) layout
-                .findViewById(R.id.loading_progress);
+        ImageView image = (ImageView) layout
+                .findViewById(R.id.dialog_icon);
+        image.setImageResource(Utils.getIconWhite(icon));
         TextView title = (TextView) layout.findViewById(R.id.message);
         title.setVisibility(TextUtils.isEmpty(msg)?View.GONE:View.VISIBLE);
         title.setText(msg);
 
         Toast toast = new Toast(context.getApplicationContext());
-        toast.setGravity(Gravity.CENTER, 0, 0);
+        if (!TextUtils.isEmpty(icon)) {
+            toast.setGravity(Gravity.CENTER, 0, 0);
+        }else {
+            image.setVisibility(View.GONE);
+        }
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();

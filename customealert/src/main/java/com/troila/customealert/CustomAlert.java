@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.troila.customealert.utils.AntiShake;
-
 /**
  * T :title
  * C :content
@@ -17,7 +15,8 @@ public class CustomAlert {
     private Context context;
     private CustomDialog.Builder builder;
     CustomDialog dia;
-//    AntiShake util = new AntiShake();
+
+    //    AntiShake util = new AntiShake();
     public CustomAlert(Context context) {
         this.context = context;
     }
@@ -56,6 +55,7 @@ public class CustomAlert {
         dia = builder.create();
         dia.show();
     }
+
     /**
      * @param msg
      * @param positiveButtonText
@@ -69,6 +69,7 @@ public class CustomAlert {
         dia = builder.create();
         dia.show();
     }
+
     /**
      * 仅显示内容
      *
@@ -81,6 +82,7 @@ public class CustomAlert {
         dia = builder.create();
         dia.show();
     }
+
     /**
      * 标题，内容，两个按钮，可设置样式"，默认样式传0
      *
@@ -100,14 +102,13 @@ public class CustomAlert {
                            DialogInterface.OnClickListener positiveButtonlistener) {
         if (!isCorrectContex()) return;
         isShowing();
-        builder = new CustomDialog.Builder(context, title, msg);
-        builder.setTitleColor(titleColor).setTitleSize(titleSize)
+        new CustomDialog.Builder(context, title, msg).setTitleColor(titleColor).setTitleSize(titleSize)
                 .setContentColor(msgColor).setContentSize(msgSize)
                 .setButtonLeftColor(negativeButtonTextColor).setContentSize(negativeButtonTextSize)
-       .setButtonRightColor(positiveButtonTextColor).setContentSize(positiveButtonTextSize)
-        .setIconType(iconType)
-        .setNegativeButton(negativeButtonText, negativeButtonlistener)
-        .setPositiveButton(positiveButtonText, positiveButtonlistener);
+                .setButtonRightColor(positiveButtonTextColor).setContentSize(positiveButtonTextSize)
+                .setIconType(iconType)
+                .setNegativeButton(negativeButtonText, negativeButtonlistener)
+                .setPositiveButton(positiveButtonText, positiveButtonlistener);
         dia = builder.create();
         dia.show();
     }
@@ -122,13 +123,13 @@ public class CustomAlert {
         if (!isCorrectContex()) return;
         isShowing();
         builder = new CustomDialog.Builder(context);
-        builder .setTitle(title)
+        builder.setTitle(title)
                 .setMessage(msg)
                 .setIconType(iconType)
+
                 .setNegativeButton(negativeButtonText, negativeButtonlistener)
                 .setPositiveButton(positiveButtonText, positiveButtonlistener).create().show();
     }
-
 
 
     private boolean isCorrectContex() {

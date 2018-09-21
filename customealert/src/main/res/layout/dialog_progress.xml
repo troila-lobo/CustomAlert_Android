@@ -9,11 +9,10 @@
     android:background="@drawable/bg_frame_deep">
 
 
-    <ImageView
-        android:id="@+id/dialog_icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:indeterminateBehavior="repeat"
         android:indeterminateDrawable="@drawable/progressbar"
