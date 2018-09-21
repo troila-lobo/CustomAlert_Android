@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.troila.customealert.CustomAlert;
 import com.troila.customealert.CustomDialog;
+import com.troila.customealert.CustomToast;
 
 public class ShowActivity extends AppCompatActivity {
     CustomAlert customAlert;
@@ -93,19 +94,19 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showToast("文字内容文字内容文字内容文字内容文字内容");
+                CustomToast.showToast(ShowActivity.this,"文字内容文字内容文字内容文字内容文字内容");
             }
         });
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showToastIC(R.drawable.img_error, "文字内容文字内容文字内容文字内容文字内容");
+                CustomToast.showToastIC(ShowActivity.this,R.drawable.img_error, "文字内容文字内容文字内容文字内容文字内容");
             }
         });
         findViewById(R.id.btn8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showToastPC("文字内容文字内容文字内容文字内容文字内容");
+                CustomToast.showToastPC(ShowActivity.this,"文字内容文字内容文字内容文字内容文字内容");
             }
         });
         findViewById(R.id.btn9).setOnClickListener(new View.OnClickListener() {

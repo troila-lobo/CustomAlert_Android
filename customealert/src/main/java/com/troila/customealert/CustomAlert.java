@@ -25,7 +25,7 @@ public class CustomAlert {
     private Context context;
     private CustomDialog.Builder builder;
     CustomDialog dia;
-    Toast toast;
+
     public CustomAlert(Context context) {
         this.context = context;
     }
@@ -118,53 +118,6 @@ public class CustomAlert {
         dia.show();
     }
 
-    /**
-     * 普通Toast
-     * @param msg
-     */
-    public void showToast(String msg){
-        toast = Toast.makeText(context.getApplicationContext(), msg,
-                Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-    }
-
-    /**
-     * 带图标和内容的Toast
-     * @param icon
-     * @param msg
-     */
-    public void showToastIC(int icon,String msg){
-        toast = Toast.makeText(context.getApplicationContext(), msg,
-                Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        LinearLayout toastView = (LinearLayout) toast.getView();
-        ImageView imageCodeProject = new ImageView(context.getApplicationContext());
-        imageCodeProject.setImageResource(icon);
-        toastView.addView(imageCodeProject, 0);
-        toast.show();
-    }
-
-    /**
-     * 带进度条的Toast
-     * @param msg
-     */
-    public void showToastPC(String msg){
-        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View layout = inflater.inflate(R.layout.cus_toast,
-                (ViewGroup) ((Activity)context).findViewById(R.id.llToast));
-        ProgressBar image = (ProgressBar) layout
-                .findViewById(R.id.loading_progress);
-        TextView title = (TextView) layout.findViewById(R.id.message);
-        title.setVisibility(TextUtils.isEmpty(msg)?View.GONE:View.VISIBLE);
-        title.setText(msg);
-
-        toast = new Toast(context.getApplicationContext());
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.show();
-    }
     private boolean isCorrectContex(){
         if (context instanceof Activity){
             return true;
