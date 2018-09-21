@@ -92,7 +92,7 @@ public class ShowActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new ProgressDialog.Builder(ShowActivity.this)
-                        .setTitle("进度条").create().show();
+                        .setTitle("").create().show();
             }
         });
         findViewById(R.id.btn9).setOnClickListener(new View.OnClickListener() {
