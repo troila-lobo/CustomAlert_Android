@@ -21,7 +21,7 @@
 >* Dialog 的基础样式为白底，其他部分半透明，带有标题，图标，内容，两个按钮
 >* Dialog 根据所传值显示内容，不传默认不生效
 >
->        new CustomDialog.Builder(context)
+       new CustomDialog.Builder(context)
 		.setTitle(title)
                 .setMessage(msg)
                 .setIconType(iconType)
@@ -50,6 +50,13 @@
 | 方法名 | 说明 | 
 | - | - | 
 |`showToast(String msg)`| 显示简单提示框|
-| `showToastIC(int icon,String msg)` | 显示带图标提示框 |
-| `showToastPC(String msg)` | 带进度条的提示框 |
+| `showToast(Context context,String icon,String msg)` | 带图标的Toast，图标仅"success","fail" ,"warning"  |
+### 3、ProgressDialog
+>ProgressDialog 包含进度条和文字
+>
+ 		new ProgressDialog.Builder(context)
+                        .setTitle(title).create().show();
+| 方法名 | 说明 | 
+| - | - | 
+|`setTitle( msg)`| 设置标题|
 
