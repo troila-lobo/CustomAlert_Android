@@ -79,13 +79,13 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomToast.showToast(ShowActivity.this,"","文字内容文");
+                CustomToast.showToast(ShowActivity.this,"","123456789096");
             }
         });
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomToast.showToast(ShowActivity.this,"fail", "文字内容");
+                CustomToast.showToast(ShowActivity.this,"success", "文字内容文字内容");
             }
         });
         findViewById(R.id.btn8).setOnClickListener(new View.OnClickListener() {
