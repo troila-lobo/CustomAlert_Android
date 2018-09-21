@@ -49,7 +49,6 @@
 >
 | 方法名 | 说明 | 
 | - | - | 
-|`showToast(String msg)`| 显示简单提示框|
 | `showToast(Context context,String icon,String msg)` | 带图标的Toast，图标仅"success","fail" ,"warning"  |
 ### 3、ProgressDialog
 >ProgressDialog 包含进度条和文字
