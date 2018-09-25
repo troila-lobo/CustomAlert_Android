@@ -41,17 +41,14 @@ public class ProgressDialog extends Dialog {
             this.context = context;
             this.title = title;
         }
-
         public Builder setTitle(int title) {
             this.title = (String) context.getText(title);
             return this;
         }
-
         public Builder setTitle(String title) {
             this.title = title;
             return this;
         }
-
         @SuppressLint("NewApi")
         public ProgressDialog create() {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

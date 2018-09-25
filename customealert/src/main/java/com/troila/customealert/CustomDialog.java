@@ -53,6 +53,7 @@ public class CustomDialog extends Dialog {
 
 
         private boolean showCloseIcon = false;
+        private boolean cancelOutSide = true;
 
         public Builder(Context context) {
             this.context = context;
@@ -157,6 +158,10 @@ public class CustomDialog extends Dialog {
             return this;
         }
 
+        public Builder setCancelOutSide(boolean cancelOutSide) {
+            this.cancelOutSide = cancelOutSide;
+            return this;
+        }
 
         @SuppressLint("NewApi")
         public CustomDialog create() {
@@ -166,7 +171,7 @@ public class CustomDialog extends Dialog {
 
             View layout = inflater.inflate(R.layout.dialog_text_layout, null);
             dialog.addContentView(layout, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
+            dialog.setCanceledOnTouchOutside(cancelOutSide);
             // set the dialog title
 
             if (!TextUtils.isEmpty(title)) {

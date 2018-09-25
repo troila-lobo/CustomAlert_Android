@@ -10,7 +10,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -35,7 +35,7 @@ publish {
     userOrg = 'ttc'//bintray.com用户名
     groupId = 'com.troila'//jcenter上的路径
     artifactId = 'CustomAlert'//项目名称
-    publishVersion = '1.0.0'//版本号
+    publishVersion = '0.0.1'//版本号
     desc = 'this is for test'//描述，不重要
     website = 'https://github.com/sunjingcat/CustomAlert_Android'//网站，最好有，不重要
 }

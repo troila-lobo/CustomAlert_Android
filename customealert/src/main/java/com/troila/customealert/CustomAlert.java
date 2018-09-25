@@ -35,6 +35,7 @@ public class CustomAlert {
         builder = new CustomDialog.Builder(context, title, msg);
         builder.setNegativeButton(negativeButtonText, negativeButtonlistener);
         builder.setPositiveButton(positiveButtonText, positiveButtonlistener);
+        builder.setCancelOutSide(false);
         dia = builder.create();
         dia.show();
     }
@@ -107,6 +108,7 @@ public class CustomAlert {
                 .setButtonLeftColor(negativeButtonTextColor).setContentSize(negativeButtonTextSize)
                 .setButtonRightColor(positiveButtonTextColor).setContentSize(positiveButtonTextSize)
                 .setIconType(iconType)
+
                 .setNegativeButton(negativeButtonText, negativeButtonlistener)
                 .setPositiveButton(positiveButtonText, positiveButtonlistener);
         dia = builder.create();
@@ -126,7 +128,7 @@ public class CustomAlert {
         builder.setTitle(title)
                 .setMessage(msg)
                 .setIconType(iconType)
-
+                .setCancelOutSide(true)
                 .setNegativeButton(negativeButtonText, negativeButtonlistener)
                 .setPositiveButton(positiveButtonText, positiveButtonlistener).create().show();
     }
