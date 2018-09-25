@@ -26,6 +26,8 @@ public class Utils {
             return R.drawable.image_w_correct;
         }else if(type.equalsIgnoreCase("fail")){
             return R.drawable.image_w_error;
+        }else if(type.equalsIgnoreCase("warning")){
+            return R.drawable.image_w_prompt;
         }else {
             return 0;
         }
