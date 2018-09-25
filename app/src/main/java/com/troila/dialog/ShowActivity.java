@@ -85,7 +85,7 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomToast.showToast(ShowActivity.this,"success", "文字内容文字内容");
+                CustomToast.showToast(ShowActivity.this,"success", "文字");
             }
         });
         findViewById(R.id.btn8).setOnClickListener(new View.OnClickListener() {
@@ -111,7 +111,7 @@ public class ShowActivity extends AppCompatActivity {
         findViewById(R.id.btn10).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog("标题" , "success","文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容","left",null, "right", null);
+                customAlert.showDialog("标题" , "文字内容","success","left",null, "right", null);
                 customAlert.showDialog("标题" ,"success","文字内容文字内容文字内字内内容文字内容文字内容文字内容文字内容","left",null, "right", null);
 
             }

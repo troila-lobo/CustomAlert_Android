@@ -22,6 +22,7 @@
         android:textColor="#0C71FF"
         android:textSize="18sp"
         android:visibility="gone"
+
         />
 
         <ImageView
@@ -55,13 +56,14 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:lineSpacingMultiplier="1.5"
-        android:minHeight="80dp"
+        android:minHeight="30dp"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="20dp"
         android:textColor="#333333"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+     />
 
     <View
         android:id="@+id/lblDialogCenterLine"

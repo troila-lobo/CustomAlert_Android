@@ -31,6 +31,6 @@
         android:textColor="#fff"
         android:visibility="gone"
 
-        />
+         />
 
 </LinearLayout>

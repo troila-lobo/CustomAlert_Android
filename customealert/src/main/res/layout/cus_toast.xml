@@ -28,6 +28,8 @@
         android:layout_gravity="center_horizontal"
         android:textSize="15sp"
         android:textColor="#fff"
+        android:minWidth="150dp"
+        android:gravity="center"
 
         />
 

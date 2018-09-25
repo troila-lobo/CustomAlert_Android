@@ -194,7 +194,7 @@ public class CustomDialog extends Dialog {
 
 
             //set Icon
-            if (!TextUtils.isEmpty(iconType)) {
+            if (0 !=Utils.getIcon(iconType)) {
                 ImageView lblDialogIcon = (ImageView) layout.findViewById(R.id.lblDialogIcon);
                 lblDialogIcon.setVisibility(View.VISIBLE);
                 lblDialogIcon.setImageResource(Utils.getIcon(iconType));
