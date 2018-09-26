@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.troila.dialog.toastcompat.EToast2;
-
 import java.util.Timer;
 import java.util.TimerTask;
 

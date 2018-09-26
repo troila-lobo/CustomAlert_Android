@@ -1,5 +1,6 @@
-package com.troila.dialog.toastcompat;
+package com.troila.customealert;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Handler;
@@ -7,22 +8,20 @@ import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.troila.dialog.R;
+
+import com.troila.customealert.utils.Utils;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Author: Blincheng.
- * Date: 2017/6/30.
- * Description:EToast2.0
- */
 
 public class EToast2 {
-    //
     private WindowManager manger;
     private Long time = 2000L;
     private static View contentView;
@@ -34,11 +33,14 @@ public class EToast2 {
     public static final int LENGTH_LONG = 1;
     private static Handler handler;
     private CharSequence text;
+    private String icon;
+    private ImageView imageView;
 
-    private EToast2(Context context, CharSequence text, int HIDE_DELAY){
+    private EToast2(Context context, CharSequence text, String icon,int HIDE_DELAY){
         manger = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 
         this.text = text;
+        this.icon = icon;
 
         if(HIDE_DELAY == EToast2.LENGTH_SHORT)
             this.time = 2000L;
@@ -47,21 +49,32 @@ public class EToast2 {
 
         if(oldToast == null){
             toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-            LayoutInflater inflate = (LayoutInflater)
-                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            contentView = inflate.inflate(R.layout.transient_toast, null);
+            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+            View layout = inflater.inflate(R.layout.cus_toast,
+                    (ViewGroup) ((Activity)context).findViewById(R.id.llToast));
+            contentView = layout;
+            imageView=contentView.findViewById(R.id.dialog_icon);
+            setText(text);
 
             params = new WindowManager.LayoutParams();
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             params.width = WindowManager.LayoutParams.WRAP_CONTENT;
             params.format = PixelFormat.TRANSLUCENT;
-            params.windowAnimations = -1;
+            params.windowAnimations = R.style.Animation_Toast;;
             params.setTitle("EToast2");
             params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                     | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                     | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
-            params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
-            params.y = 200;
+            if (Utils.getIconWhite(icon)!= 0) {
+                params.gravity = Gravity.CENTER;
+                params.y = 0;
+            }else {
+                params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
+                params.y = 200;
+                imageView.setVisibility(View.GONE);
+
+            }
+
         }
         if(handler == null){
             handler = new Handler(){
@@ -73,13 +86,14 @@ public class EToast2 {
         }
     }
 
-    public static EToast2 makeText(Context context, String text, int HIDE_DELAY){
-        EToast2 toast = new EToast2(context, text, HIDE_DELAY);
+
+    public static EToast2 makeText(Context context, String text,String icon, int HIDE_DELAY){
+        EToast2 toast = new EToast2(context, text,icon, HIDE_DELAY);
         return toast;
     }
 
-    public static EToast2 makeText(Context context, int resId, int HIDE_DELAY) {
-        return makeText(context,context.getText(resId).toString(),HIDE_DELAY);
+    public static EToast2 makeText(Context context, int resId,String icon, int HIDE_DELAY) {
+        return makeText(context,context.getText(resId).toString(),icon,HIDE_DELAY);
     }
 
     public void show(){
@@ -90,6 +104,7 @@ public class EToast2 {
         }else{
             timer.cancel();
             oldToast.setText(text);
+
         }
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -117,6 +132,8 @@ public class EToast2 {
         handler = null;
     }
     public void setText(CharSequence s){
-        toast.setText(s);
+        ((TextView)contentView.findViewById(R.id.message)).setText(s);
+
+        imageView.setImageResource(Utils.getIconWhite(icon));
     }
 }

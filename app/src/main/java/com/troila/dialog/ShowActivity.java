@@ -1,7 +1,7 @@
 package com.troila.dialog;
 
+import android.app.Activity;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,8 +9,10 @@ import com.troila.customealert.CustomAlert;
 import com.troila.customealert.CustomDialog;
 import com.troila.customealert.CustomToast;
 import com.troila.customealert.ProgressDialog;
+import com.troila.customealert.EToast2;
+import com.troila.dialog.toastcompat.XToast;
 
-public class ShowActivity extends AppCompatActivity {
+public class ShowActivity extends Activity {
     CustomAlert customAlert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +82,7 @@ public class ShowActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CustomToast.showToast(ShowActivity.this,"","123456789096");
-            }
+                      }
         });
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {
             @Override

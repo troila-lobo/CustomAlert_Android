@@ -6,6 +6,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 
+import com.troila.customealert.EToast2;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -26,7 +28,7 @@ public class Toast {
         else
             checkNotification = isNotificationEnabled(context) ? 0 : 1;
         if (checkNotification == 1) {
-            mToast = EToast2.makeText(context, message, duration);
+//            mToast = EToast2.makeText(context, message, duration);
         } else {
             mToast = android.widget.Toast.makeText(context, message, duration);
         }
@@ -37,7 +39,7 @@ public class Toast {
         else
             checkNotification = isNotificationEnabled(context) ? 0 : 1;
         if (checkNotification == 1 && context instanceof Activity) {
-            mToast = EToast2.makeText(context, resId, duration);
+//            mToast = EToast2.makeText(context, resId, duration);
         } else {
             mToast = android.widget.Toast.makeText(context, resId, duration);
         }

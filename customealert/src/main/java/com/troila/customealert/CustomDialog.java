@@ -172,6 +172,8 @@ public class CustomDialog extends Dialog {
             View layout = inflater.inflate(R.layout.dialog_text_layout, null);
             dialog.addContentView(layout, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             dialog.setCanceledOnTouchOutside(cancelOutSide);
+
+            dialog.setCancelable(false);
             // set the dialog title
 
             if (!TextUtils.isEmpty(title)) {

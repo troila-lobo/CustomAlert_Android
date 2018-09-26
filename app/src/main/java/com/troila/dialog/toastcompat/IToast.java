@@ -2,6 +2,8 @@ package com.troila.dialog.toastcompat;
 
 import android.content.Context;
 
+import com.troila.customealert.EToast2;
+
 
 /**
  * Created by admin on 2017/3/20.

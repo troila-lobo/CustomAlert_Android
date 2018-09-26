@@ -23,25 +23,8 @@ public class CustomToast {
      * @param msg
      */
     public static void showToast(Context context,String icon,String msg){
-        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View layout = inflater.inflate(R.layout.cus_toast,
-                (ViewGroup) ((Activity)context).findViewById(R.id.llToast));
-        ImageView image = (ImageView) layout
-                .findViewById(R.id.dialog_icon);
-        image.setImageResource(Utils.getIconWhite(icon));
-        TextView title = (TextView) layout.findViewById(R.id.message);
-        title.setVisibility(TextUtils.isEmpty(msg)?View.GONE:View.VISIBLE);
-        title.setText(msg);
+        EToast2.makeText(context,msg,icon,EToast2.LENGTH_SHORT).show();
 
-        Toast toast = new Toast(context.getApplicationContext());
-        if (!TextUtils.isEmpty(icon)) {
-            toast.setGravity(Gravity.CENTER, 0, 0);
-        }else {
-            image.setVisibility(View.GONE);
-        }
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.show();
     }
 
 
