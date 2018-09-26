@@ -21,7 +21,7 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:indeterminateBehavior="repeat"
-        android:indeterminateDrawable="@drawable/progressbar"
+        android:indeterminateDrawable="@drawable/progressbar_alert"
         android:visibility="gone" />
 
     <TextView
