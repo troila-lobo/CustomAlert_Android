@@ -172,8 +172,6 @@ public class CustomDialog extends Dialog {
             View layout = inflater.inflate(R.layout.dialog_text_layout, null);
             dialog.addContentView(layout, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             dialog.setCanceledOnTouchOutside(cancelOutSide);
-
-            dialog.setCancelable(false);
             // set the dialog title
 
             if (!TextUtils.isEmpty(title)) {
@@ -230,6 +228,9 @@ public class CustomDialog extends Dialog {
                     ((TextView) layout.findViewById(R.id.lblNegative)).setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             negativeButtonClickListener.onClick(dialog, DialogInterface.BUTTON_NEGATIVE);
+                            if (dialog !=null &&dialog.isShowing()){
+                                dialog.dismiss();
+                            }
                         }
                     });
                 }
@@ -249,6 +250,9 @@ public class CustomDialog extends Dialog {
                     lblPositive.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             positiveButtonClickListener.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
+                            if (dialog !=null &&dialog.isShowing()){
+                                dialog.dismiss();
+                            }
                         }
                     });
                 }

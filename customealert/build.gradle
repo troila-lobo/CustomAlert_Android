@@ -37,5 +37,5 @@ publish {
     artifactId = 'CustomAlert'//项目名称
     publishVersion = '0.0.1'//版本号
     desc = 'this is for test'//描述，不重要
-    website = 'https://github.com/sunjingcat/CustomAlert_Android'//网站，最好有，不重要
+    website = 'https://github.com/troila-mobile/CustomAlert_Android'//网站，最好有，不重要
 }

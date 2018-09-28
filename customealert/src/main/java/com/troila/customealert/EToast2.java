@@ -117,7 +117,7 @@ public class EToast2 {
 
     public void cancel(){
         try {
-            manger.removeView(contentView);
+            manger.removeViewImmediate(contentView);
         } catch (IllegalArgumentException e) {
             //这边由于上下文被销毁后removeView可能会抛出IllegalArgumentException
             //暂时这么处理，因为EToast2是轻量级的，不想和Context上下文的生命周期绑定在一块儿
@@ -136,4 +136,5 @@ public class EToast2 {
 
         imageView.setImageResource(Utils.getIconWhite(icon));
     }
+
 }

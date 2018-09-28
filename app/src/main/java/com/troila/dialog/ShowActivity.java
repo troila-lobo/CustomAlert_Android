@@ -9,8 +9,7 @@ import com.troila.customealert.CustomAlert;
 import com.troila.customealert.CustomDialog;
 import com.troila.customealert.CustomToast;
 import com.troila.customealert.ProgressDialog;
-import com.troila.customealert.EToast2;
-import com.troila.dialog.toastcompat.XToast;
+import com.troila.customealert.Toast;
 
 public class ShowActivity extends Activity {
     CustomAlert customAlert;
@@ -81,7 +80,7 @@ public class ShowActivity extends Activity {
         findViewById(R.id.btn6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomToast.showToast(ShowActivity.this,"","123456789096");
+                android.widget.Toast.makeText(ShowActivity.this,"系统",android.widget.Toast.LENGTH_SHORT).show();
                       }
         });
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {
@@ -126,5 +125,11 @@ public class ShowActivity extends Activity {
                 dia.show();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }
