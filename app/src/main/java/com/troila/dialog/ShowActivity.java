@@ -76,6 +76,7 @@ public class ShowActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 android.widget.Toast.makeText(ShowActivity.this,"系统",android.widget.Toast.LENGTH_SHORT).show();
+                CustomToast.showToast(ShowActivity.this,"", "文字");
                       }
         });
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {

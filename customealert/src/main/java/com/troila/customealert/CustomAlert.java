@@ -16,7 +16,6 @@ public class CustomAlert {
     private CustomDialog.Builder builder;
     CustomDialog dia;
 
-    //    AntiShake util = new AntiShake();
     public CustomAlert(Context context) {
         this.context = context;
     }

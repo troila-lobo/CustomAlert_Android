@@ -1,10 +1,6 @@
 package com.troila.customealert;
-
-
 import android.content.Context;
-
-import com.troila.customealert.custoast.EToast2;
-import com.troila.customealert.custoast.Toast;
+import com.troila.customealert.custoast.ToastUtils;
 
 public class CustomToast {
 
@@ -14,7 +10,7 @@ public class CustomToast {
      * @param msg
      */
     public static void showToast(Context context,String icon,String msg){
-        Toast.makeText(context,msg,icon, EToast2.LENGTH_SHORT).show();
+        ToastUtils.makeText(context,msg,icon, ToastUtils.LENGTH_SHORT).show();
 
     }
 
