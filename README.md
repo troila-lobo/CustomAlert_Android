@@ -21,6 +21,9 @@
 >* Dialog 的基础样式为白底，其他部分半透明，带有标题，图标，内容，两个按钮
 >* Dialog 根据所传值显示内容，不传默认不生效
 >
+ 	CommonDialogFragment dialogFragment = CommonDialogFragment.newInstance(new CommonDialogFragment.OnCallDialog() {
+                    @Override
+                    public Dialog getDialog(Context context) {
        new CustomDialog.Builder(context)
 		.setTitle(title)
                 .setMessage(msg)
@@ -30,7 +33,10 @@
                 .setButtonLeftColor(negativeButtonTextColor).setContentSize(negativeButtonTextSize)
                 .setButtonRightColor(positiveButtonTextColor).setContentSize(positiveButtonTextSize)
                 .setNegativeButton(negativeButtonText, negativeButtonlistener)
-                .setPositiveButton(positiveButtonText, positiveButtonlistener).create().show();
+                .setPositiveButton(positiveButtonText, positiveButtonlistener).create();
+		 }
+                }, true);
+                dialogFragment.show(getSupportFragmentManager(), "tag");
    
 | 方法名 | 说明 | 
 | - | - | 
