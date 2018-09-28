@@ -117,7 +117,7 @@ public class Toast {
         image.setImageResource(Utils.getIconWhite(icon));
         TextView title = (TextView) layout.findViewById(R.id.message);
         title.setVisibility(TextUtils.isEmpty(msg)?View.GONE:View.VISIBLE);
-        title.setText("系统Toast");
+        title.setText(msg);
 
         android.widget.Toast toast = new android.widget.Toast(context);
         if (!TextUtils.isEmpty(icon)) {
