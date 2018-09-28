@@ -1,4 +1,4 @@
-package com.troila.customealert;
+package com.troila.customealert.custoast;
 
 import android.app.Activity;
 import android.app.AppOpsManager;
@@ -9,10 +9,10 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.troila.customealert.R;
 import com.troila.customealert.utils.Utils;
 
 import java.lang.reflect.Field;

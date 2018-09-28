@@ -1,4 +1,4 @@
-package com.troila.customealert;
+package com.troila.customealert.custoast;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.troila.customealert.R;
 import com.troila.customealert.utils.Utils;
 
 import java.util.Timer;

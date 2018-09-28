@@ -1,10 +1,12 @@
 package com.troila.customealert;
 
 import android.annotation.SuppressLint;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +22,7 @@ import com.troila.customealert.utils.Utils;
  * @author Administrator
  */
 
-public class CustomDialog extends Dialog {
+public class CustomDialog extends Dialog{
 
     public CustomDialog(Context context, int theme) {
         super(context, theme);
