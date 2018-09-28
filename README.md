@@ -47,6 +47,7 @@
 >Toast 的基础样式为白底，其他部分半透明，带有标题，图标，内容，两个按钮
 >* Toast 根据所传值显示内容，不传默认不生效
 >
+	CustomToast.showToast(context,"success", "文字");
 | 方法名 | 说明 | 
 | - | - | 
 | `showToast(Context context,String icon,String msg)` | 带图标的Toast，图标仅"success","fail" ,"warning"  |
