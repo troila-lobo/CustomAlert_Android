@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="50dp"
     android:orientation="vertical"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp">
+ >
 
     <LinearLayout
         android:id="@+id/toast_linear"
@@ -15,8 +14,8 @@
         android:background="@drawable/bg_frame_deep"
         android:gravity="bottom|center"
         android:orientation="vertical"
-        android:padding="15dp"
-        android:minWidth="150dp">
+
+       >
         <ImageView
             android:id="@+id/dialog_icon"
             android:layout_width="40dp"
@@ -25,20 +24,26 @@
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
 
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:visibility="gone"
             />
 
         <TextView
             android:id="@+id/mbMessage"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:text=""
             android:shadowColor="#BB000000"
             android:shadowRadius="2.75"
             android:textColor="#FFFFFFFF"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:minWidth="150dp"/>
 
     </LinearLayout>
 </LinearLayout>

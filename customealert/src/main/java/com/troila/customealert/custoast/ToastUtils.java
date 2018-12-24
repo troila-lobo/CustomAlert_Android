@@ -31,11 +31,11 @@ public class ToastUtils {
     // 默认展示时间
     private int HIDE_DELAY = 2000;
     private static LinearLayout mContainer;
-    private AlphaAnimation mFadeOutAnimation;
+    private static AlphaAnimation mFadeOutAnimation;
     private AlphaAnimation mFadeInAnimation;
-    private boolean isShow = false;
+    private static boolean isShow = false;
     private static Context mContext;
-    private Handler mHandler = new Handler();
+    private static Handler mHandler = new Handler();
 
     private ToastUtils(Context context) {
         mContext = context;
@@ -69,6 +69,7 @@ public class ToastUtils {
             mInstance.HIDE_DELAY = 1500;
         }
         mTextView.setText(message);
+        mTextView.setVisibility(View.VISIBLE);
         if (!TextUtils.isEmpty(icon)) {
             mContainer.setGravity(Gravity.CENTER);
             iconImage.setVisibility(View.VISIBLE);
@@ -128,14 +129,14 @@ public class ToastUtils {
         mHandler.postDelayed(mHideRunnable, HIDE_DELAY);
     }
 
-    private final Runnable mHideRunnable = new Runnable() {
+    private static final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
             mContainer.startAnimation(mFadeOutAnimation);
         }
     };
 
-    public void cancel() {
+    public static void cancel() {
         if (isShow) {
             isShow = false;
             mContainer.setVisibility(View.GONE);
@@ -149,7 +150,9 @@ public class ToastUtils {
      * 所以使用上还需要在BaseActivity的onDestroy()方法中调用
      */
     public static void reset() {
-        mInstance = null;
+//        mInstance = null;
+        cancel();
+
     }
 
     public void setText(CharSequence s) {
