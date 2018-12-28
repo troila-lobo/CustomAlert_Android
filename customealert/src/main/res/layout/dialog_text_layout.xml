@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
         android:gravity="center"
-        android:textColor="#0C71FF"
+        android:textColor="#586BFB"
         android:textSize="18sp"
         android:visibility="gone"
 
@@ -103,7 +103,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="#016BFF"
+            android:textColor="#586BFB"
             android:textSize="14sp" />
     </LinearLayout>
 
