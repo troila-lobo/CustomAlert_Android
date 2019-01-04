@@ -54,14 +54,16 @@ public class ToastUtils {
 
     public static ToastUtils makeText(Context context, String message,String icon,
                                       int HIDE_DELAY) {
-        if (mInstance == null) {
+//         if (mInstance == null) {
+//             mInstance = new ToastUtils(context);
+//         } else {
+//             // 考虑Activity切换时，Toast依然显示
+//             if (!mContext.getClass().getName().endsWith(context.getClass().getName())) {
+//                 mInstance = new ToastUtils(context);
+//             }
+//         }
+          reset();
             mInstance = new ToastUtils(context);
-        } else {
-            // 考虑Activity切换时，Toast依然显示
-            if (!mContext.getClass().getName().endsWith(context.getClass().getName())) {
-                mInstance = new ToastUtils(context);
-            }
-        }
 
         if (HIDE_DELAY == LENGTH_LONG) {
             mInstance.HIDE_DELAY = 2500;
