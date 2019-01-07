@@ -5,9 +5,11 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.graphics.Color;
 
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -172,6 +174,7 @@ public class CustomDialog extends Dialog{
             final CustomDialog dialog = new CustomDialog(context, R.style.custom_Progress);
 
             View layout = inflater.inflate(R.layout.dialog_text_layout, null);
+
             dialog.addContentView(layout, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             dialog.setCanceledOnTouchOutside(cancelOutSide);
             // set the dialog title
@@ -272,6 +275,14 @@ public class CustomDialog extends Dialog{
             dialog.setContentView(layout);
             return dialog;
         }
+        private int  getwidth(Context context){
+            Resources resources = context.getResources();
+            DisplayMetrics dm = resources.getDisplayMetrics();
+            float density = dm.density;
+            int width = dm.widthPixels;
+            return width;
+        }
     }
+
 
 }
