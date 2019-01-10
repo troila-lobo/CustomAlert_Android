@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(),TestActivity.class));
-                CustomToast.showToast(MainActivity.this,"warning",""+App.num);
+//                startActivity(new Intent(getApplicationContext(),TestActivity.class));
+                CustomToast.showToast(MainActivity.this,"success",""+App.num);
                 App.num++;
 
             }

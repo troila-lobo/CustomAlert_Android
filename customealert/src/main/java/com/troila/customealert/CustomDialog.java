@@ -194,7 +194,9 @@ public class CustomDialog extends Dialog{
             //set close icon
 
             ImageView lblDialogClose = (ImageView) layout.findViewById(R.id.lblDialogClose);
+            View lblDialogCloseLine = (View) layout.findViewById(R.id.lblDialogCloseLine);
             lblDialogClose.setVisibility(showCloseIcon ? View.VISIBLE : View.GONE);
+            lblDialogCloseLine.setVisibility(showCloseIcon ?View.VISIBLE : View.GONE);
             lblDialogClose.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -271,6 +273,7 @@ public class CustomDialog extends Dialog{
                 layout.findViewById(R.id.lblButton).setVisibility(View.GONE);
                 layout.findViewById(R.id.lblDialogCenterLine).setVisibility(View.GONE);
                 lblDialogClose.setVisibility(View.VISIBLE);
+                lblDialogCloseLine.setVisibility(View.VISIBLE);
             }
             dialog.setContentView(layout);
             return dialog;
