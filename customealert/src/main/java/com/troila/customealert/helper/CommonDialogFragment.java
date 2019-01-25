@@ -11,8 +11,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
 import android.view.WindowManager;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by Haoz on 2017/4/6 0006.
@@ -90,5 +94,13 @@ public class CommonDialogFragment extends DialogFragment {
             mCancelListener.onCancel();
         }
     }
+    @Override
+    public void show(FragmentManager manager, String tag) {
+
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.add(this, tag);
+        ft.commitAllowingStateLoss();
+    }
+
 }
 
