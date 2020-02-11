@@ -1,17 +1,21 @@
 package com.troila.dialog;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.troila.customealert.CustomAlert;
 import com.troila.customealert.CustomDialog;
 import com.troila.customealert.CustomToast;
 import com.troila.customealert.ProgressDialog;
-import com.troila.customealert.Toast;
+import com.troila.customealert.helper.CommonDialogFragment;
+import com.troila.customealert.helper.DialogFragmentHelper;
 
-public class ShowActivity extends Activity {
+public class ShowActivity extends AppCompatActivity {
     CustomAlert customAlert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,33 +31,24 @@ public class ShowActivity extends Activity {
         findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog("标题", "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "按钮", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                }, "按钮", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
+                DialogFragmentHelper.showConfirmDialog(getSupportFragmentManager(), "是否选择 Android？", true);
             }
         });
         findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                customAlert.showDialog("", "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容内容文字内容文字内容文字内容", "按钮", new DialogInterface.OnClickListener() {
+                CommonDialogFragment dialogFragment = CommonDialogFragment.newInstance(new CommonDialogFragment.OnCallDialog() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
+                    public Dialog getDialog(Context context) {
+                        return  new CustomDialog.Builder(context)
+                                .setTitle("123")
+                                .setMessage("123")
+                                .setIconType("fail")
+                                .setNegativeButton("no", null)
+                                .setPositiveButton("ok", null).create();
                     }
-                }, "按钮", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
+                }, true);
+                dialogFragment.show(getSupportFragmentManager(), "123");
             }
         });
         findViewById(R.id.btn4).setOnClickListener(new View.OnClickListener() {
@@ -81,6 +76,7 @@ public class ShowActivity extends Activity {
             @Override
             public void onClick(View v) {
                 android.widget.Toast.makeText(ShowActivity.this,"系统",android.widget.Toast.LENGTH_SHORT).show();
+                CustomToast.showToast(ShowActivity.this,"", "文字");
                       }
         });
         findViewById(R.id.btn7).setOnClickListener(new View.OnClickListener() {

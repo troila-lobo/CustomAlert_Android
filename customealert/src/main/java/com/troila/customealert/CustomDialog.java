@@ -1,11 +1,15 @@
 package com.troila.customealert;
 
 import android.annotation.SuppressLint;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.graphics.Color;
+
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -20,7 +24,7 @@ import com.troila.customealert.utils.Utils;
  * @author Administrator
  */
 
-public class CustomDialog extends Dialog {
+public class CustomDialog extends Dialog{
 
     public CustomDialog(Context context, int theme) {
         super(context, theme);
@@ -170,6 +174,7 @@ public class CustomDialog extends Dialog {
             final CustomDialog dialog = new CustomDialog(context, R.style.custom_Progress);
 
             View layout = inflater.inflate(R.layout.dialog_text_layout, null);
+
             dialog.addContentView(layout, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             dialog.setCanceledOnTouchOutside(cancelOutSide);
             // set the dialog title
@@ -189,7 +194,9 @@ public class CustomDialog extends Dialog {
             //set close icon
 
             ImageView lblDialogClose = (ImageView) layout.findViewById(R.id.lblDialogClose);
+            View lblDialogCloseLine = (View) layout.findViewById(R.id.lblDialogCloseLine);
             lblDialogClose.setVisibility(showCloseIcon ? View.VISIBLE : View.GONE);
+            lblDialogCloseLine.setVisibility(showCloseIcon ?View.VISIBLE : View.GONE);
             lblDialogClose.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -266,10 +273,19 @@ public class CustomDialog extends Dialog {
                 layout.findViewById(R.id.lblButton).setVisibility(View.GONE);
                 layout.findViewById(R.id.lblDialogCenterLine).setVisibility(View.GONE);
                 lblDialogClose.setVisibility(View.VISIBLE);
+                lblDialogCloseLine.setVisibility(View.VISIBLE);
             }
             dialog.setContentView(layout);
             return dialog;
         }
+        private int  getwidth(Context context){
+            Resources resources = context.getResources();
+            DisplayMetrics dm = resources.getDisplayMetrics();
+            float density = dm.density;
+            int width = dm.widthPixels;
+            return width;
+        }
     }
+
 
 }

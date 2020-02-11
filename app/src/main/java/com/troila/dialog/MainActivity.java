@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, "标题", "文字内容文字内容\n" +
-                        "文字内容文字内容文字内容");
+                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, "标题", "文字内容文字内容" +
+                        "aaaabbbbbbcccccccddddddddrrrrrrrrggggg字内容文字内容");
+                builder.setIconType("success");
                 builder.setNegativeButton("离开", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -66,15 +67,15 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, "标题", "文字内容文字内容\n" +
-                        "文字内容文字内容文字内容");
+                CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this, "", "文字内容文字内容\n" +
+                        "文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容");
 
-                builder.setNegativeButton("确认", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this,"PositiveButton",Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                builder.setNegativeButton("确认", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(MainActivity.this,"PositiveButton",Toast.LENGTH_SHORT).show();
+//                    }
+//                });
                 CustomDialog dia = builder.create();
                 dia.show();
             }
