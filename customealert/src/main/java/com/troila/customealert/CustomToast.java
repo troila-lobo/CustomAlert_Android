@@ -21,5 +21,8 @@ public class CustomToast {
 
     }
 
+    public static void release() {
+        ToastUtils.release();
+    }
 
 }

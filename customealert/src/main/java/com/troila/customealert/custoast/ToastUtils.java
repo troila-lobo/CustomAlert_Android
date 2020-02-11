@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -24,18 +25,19 @@ public class ToastUtils {
     private static ToastUtils mInstance;
     // 动画时间
     private final int ANIMATION_DURATION = 600;
-    private static TextView mTextView;
-    private static ImageView iconImage;
+    private TextView mTextView;
+    private ImageView iconImage;
     private ViewGroup container;
     private View mView;
     // 默认展示时间
-    private int HIDE_DELAY = 2000;
-    private static LinearLayout mContainer;
-    private static AlphaAnimation mFadeOutAnimation;
+//    private int HIDE_DELAY = 2000;
+    private int mDurationHide = 2000;
+    private LinearLayout mContainer;
+    private AlphaAnimation mFadeOutAnimation;
     private AlphaAnimation mFadeInAnimation;
-    private static boolean isShow = false;
-    private static Context mContext;
-    private static Handler mHandler = new Handler();
+    private boolean isShow = false;
+    private Context mContext;
+    private static Handler mHandler = new Handler(Looper.getMainLooper());
 
     private ToastUtils(Context context) {
         mContext = context;
@@ -62,24 +64,25 @@ public class ToastUtils {
 //                 mInstance = new ToastUtils(context);
 //             }
 //         }
-          reset();
-            mInstance = new ToastUtils(context);
-
+//          reset();
+//            mInstance = new ToastUtils(context);
+        cancel();
+        mInstance = new ToastUtils(context);
         if (HIDE_DELAY == LENGTH_LONG) {
-            mInstance.HIDE_DELAY = 2500;
+            mInstance.mDurationHide = 2500;
         } else {
-            mInstance.HIDE_DELAY = 1500;
+            mInstance.mDurationHide = 1500;
         }
-        mTextView.setText(message);
-        mTextView.setVisibility(View.VISIBLE);
+        mInstance.mTextView.setText(message);
+        mInstance.mTextView.setVisibility(View.VISIBLE);
         if (!TextUtils.isEmpty(icon)) {
-            mContainer.setGravity(Gravity.CENTER);
-            iconImage.setVisibility(View.VISIBLE);
+            mInstance.mContainer.setGravity(Gravity.CENTER);
+            mInstance.iconImage.setVisibility(View.VISIBLE);
         }else {
-            mContainer.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
-            iconImage.setVisibility(View.GONE);
+            mInstance.mContainer.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
+            mInstance.iconImage.setVisibility(View.GONE);
         }
-        iconImage.setImageResource(Utils.getIconWhite(icon));
+        mInstance.iconImage.setImageResource(Utils.getIconWhite(icon));
         return mInstance;
     }
 
@@ -128,10 +131,10 @@ public class ToastUtils {
         mFadeInAnimation.setDuration(ANIMATION_DURATION);
 
         mContainer.startAnimation(mFadeInAnimation);
-        mHandler.postDelayed(mHideRunnable, HIDE_DELAY);
+        mHandler.postDelayed(mHideRunnable, mDurationHide);
     }
 
-    private static final Runnable mHideRunnable = new Runnable() {
+    private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
             mContainer.startAnimation(mFadeOutAnimation);
@@ -139,10 +142,17 @@ public class ToastUtils {
     };
 
     public static void cancel() {
-        if (isShow) {
-            isShow = false;
-            mContainer.setVisibility(View.GONE);
-            mHandler.removeCallbacks(mHideRunnable);
+        if (mInstance != null) {
+            if (mInstance.isShow) {
+                mInstance.isShow = false;
+                mHandler.removeCallbacks(mInstance.mHideRunnable);
+                mInstance.mContainer.setVisibility(View.GONE);
+            }
+            mInstance.mContainer = null;
+            mInstance.mView = null;
+            mInstance.mTextView = null;
+            mInstance.mContext = null;
+            mInstance = null;
         }
     }
 
@@ -154,12 +164,10 @@ public class ToastUtils {
     public static void reset() {
 //        mInstance = null;
         cancel();
-
     }
 
     public void setText(CharSequence s) {
         if (mInstance == null) return;
-
         TextView mTextView = (TextView) mView.findViewById(R.id.mbMessage);
         if (mTextView == null) {
             throw new RuntimeException(
@@ -171,5 +179,9 @@ public class ToastUtils {
 
     public void setText(int resId) {
         setText(mContext.getText(resId));
+    }
+
+    public static void release() {
+        cancel();
     }
 }
