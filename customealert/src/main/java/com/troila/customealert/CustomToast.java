@@ -17,9 +17,11 @@ public class CustomToast {
     	 if(context!=null && !TextUtils.isEmpty(icon) && !TextUtils.isEmpty(msg)){
              if (context instanceof Activity) {
             	 ToastUtils.makeText(context, msg, icon, ToastUtils.LENGTH_SHORT).show();
-       	 }else {
+       	     }else {
             	Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-       	 }
+       	     }
+        }else if(context!=null && !TextUtils.isEmpty(msg)){
+              Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
         }
     }
 
