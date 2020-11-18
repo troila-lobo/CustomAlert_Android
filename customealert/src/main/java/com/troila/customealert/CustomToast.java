@@ -20,12 +20,12 @@ public class CustomToast {
             if (context instanceof Activity) {
                 ToastUtils.makeText(context, msg, icon, ToastUtils.LENGTH_SHORT).show();
             } else {
-                Toast toast = Toast.makeText(context, null, Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context, "", Toast.LENGTH_SHORT);
                 toast.setText(msg);
                 toast.show();
             }
         }else if(context != null && !TextUtils.isEmpty(msg)){
-            Toast toast = Toast.makeText(context, null, Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, "", Toast.LENGTH_SHORT);
             toast.setText(msg);
             toast.show();
         }
